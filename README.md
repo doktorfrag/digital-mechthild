@@ -1,2 +1,2 @@
 # digital-mechthild
-Contains R and TXT files for work on Digital Mechthild project
+Contains R and ODT files for work on Digital Mechthild project
