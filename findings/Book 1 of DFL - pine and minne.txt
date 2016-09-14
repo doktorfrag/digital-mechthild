@@ -1,0 +1,65 @@
+                                       pine     minne
+CHAPTER 0: Prologue Book 1 of DfL        NA        NA
+CHAPTER 1: Book 1 of DfL                 NA 5.0179211
+CHAPTER 2: Book 1 of DfL                 NA        NA
+CHAPTER 3: Book 1 of DfL                 NA 1.8518519
+CHAPTER 4: Book 1 of DfL                 NA        NA
+CHAPTER 5: Book 1 of DfL                 NA        NA
+CHAPTER 6: Book 1 of DfL                 NA 0.7874016
+CHAPTER 7: Book 1 of DfL                 NA        NA
+CHAPTER 8: Book 1 of DfL                 NA        NA
+CHAPTER 9: Book 1 of DfL                 NA 2.4390244
+CHAPTER 10: Book 1 of DfL                NA        NA
+CHAPTER 11: Book 1 of DfL                NA        NA
+CHAPTER 12: Book 1 of DfL                NA        NA
+CHAPTER 13: Book 1 of DfL                NA        NA
+CHAPTER 14: Book 1 of DfL                NA        NA
+CHAPTER 15: Book 1 of DfL                NA        NA
+CHAPTER 16: Book 1 of DfL                NA 3.5714286
+CHAPTER 17: Book 1 of DfL                NA 1.9607843
+CHAPTER 18: Book 1 of DfL                NA        NA
+CHAPTER 19: Book 1 of DfL                NA        NA
+CHAPTER 20: Book 1 of DfL                NA        NA
+CHAPTER 21: Book 1 of DfL                NA 3.1250000
+CHAPTER 22: Book 1 of DfL         0.1126126 0.2252252
+CHAPTER 23: Book 1 of DfL                NA 5.0000000
+CHAPTER 24: Book 1 of DfL                NA 9.0909091
+CHAPTER 25: Book 1 of DfL         2.1739130        NA
+CHAPTER 26: Book 1 of DfL                NA        NA
+CHAPTER 27: Book 1 of DfL                NA        NA
+CHAPTER 28: Book 1 of DfL                NA 3.6496350
+CHAPTER 29: Book 1 of DfL                NA 0.5405405
+CHAPTER 30: Book 1 of DfL                NA        NA
+CHAPTER 31: Book 1 of DfL                NA        NA
+CHAPTER 32: Book 1 of DfL         1.4492754        NA
+CHAPTER 33: Book 1 of DfL                NA 5.2631579
+CHAPTER 34: Book 1 of DfL         5.7142857        NA
+CHAPTER 35: Book 1 of DfL         1.2500000 1.2500000
+CHAPTER 36: Book 1 of DfL                NA 2.0833333
+CHAPTER 37: Book 1 of DfL                NA 2.5000000
+CHAPTER 38: Book 1 of DfL                NA        NA
+CHAPTER 39: Book 1 of DfL                NA 4.7619048
+CHAPTER 40: Book 1 of DfL                NA        NA
+CHAPTER 41: Book 1 of DfL                NA        NA
+CHAPTER 42: Book 1 of DfL                NA        NA
+CHAPTER 43: Book 1 of DfL                NA        NA
+CHAPTER 44: Book 1 of DfL         0.1578532 1.1049724
+CHAPTER 45: Book 1 of DfL                NA        NA
+CHAPTER 46: Book 1 of DfL                NA 0.4201681
+
+Pearson's product-moment correlation
+
+data:  pine.minne.df$pine and pine.minne.df$minne
+t = -0.87397, df = 45, p-value = 0.3868
+alternative hypothesis: true correlation is not equal to 0
+95 percent confidence interval:
+ -0.4014646  0.1640615
+sample estimates:
+      cor 
+-0.129192 
+
+Minumum:  -0.1501537 
+Maximum:  0.7644272 
+Range:  -0.1501537 0.7644272 
+Mean:  -0.0002451425 
+Standard Deviation:  0.1471406 

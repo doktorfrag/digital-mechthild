@@ -60,28 +60,59 @@ for (i in 1:length(cleaned.text.l)) {
 }
 
 ## -----------------------------------------
-## get data for "pine", "minne" and "lichamen"
+## get data for "pine" and "minne"
 ## -----------------------------------------
 
 #relative frequencies pulled into list
 pine.l <- lapply(relative.text.freqs.l[[1]], '[', 'pine')
 minne.l <- lapply(relative.text.freqs.l[[1]], '[', 'minne')
-lichamen.l <- lapply(relative.text.freqs.l[[1]], '[', 'lichamen')
 
 #create matrices
 pine.m <- do.call(rbind, pine.l)
 minne.m <- do.call(rbind, minne.l)
-lichamen.m <- do.call(rbind, lichamen.l)
 
-#merge matrices and name columns
-pine.lichamen.m <- cbind(pine.m[,1], lichamen.m[,1])
-minne.lichamen.m <- cbind(minne.m[,1], lichamen.m[,1])
+#merge matrices, name columns, clear NA values
 pine.minne.m <- cbind(pine.m[,1], minne.m[,1])
-colnames(minne.lichamen.m) <- c("minne", "lichamen")
-colnames(pine.lichamen.m) <- c("pine", "lichamen")
 colnames(pine.minne.m) <- c("pine", "minne")
+pine.minne.m[which(is.na(pine.minne.m))] <- 0
+print(pine.minne.m)
 
 #plot barchart
-barplot(minne.lichamen.m, beside = TRUE, col = 'grey')
-barplot(pine.lichamen.m, beside = TRUE, col = 'grey')
 barplot(pine.minne.m, beside = TRUE, col = 'grey')
+
+## -----------------------------------------
+## calculate correlation between "pine" and "minne"
+## -----------------------------------------
+
+pine.minne.df <- as.data.frame(pine.minne.m)
+pine.minne.cor <- cor.test(pine.minne.df$pine, pine.minne.df$minne, method = "pearson")
+print(pine.minne.cor)
+
+## -----------------------------------------
+## test correlation with randomization
+## -----------------------------------------
+
+random.cor.pine.minne.v <- NULL
+for (i in 1:100000) {
+  random.cor.pine.minne.v <- c(random.cor.pine.minne.v, 
+                               cor(sample(pine.minne.df$pine), pine.minne.df$minne))
+}
+
+cat("Minumum: ", min(random.cor.pine.minne.v), "\n")
+cat("Maximum: ", max(random.cor.pine.minne.v), "\n")
+cat("Range: ", range(random.cor.pine.minne.v), "\n")
+cat("Mean: ", mean(random.cor.pine.minne.v), "\n")
+cat("Standard Deviation: ", sd(random.cor.pine.minne.v), "\n")
+
+## -----------------------------------------
+## print pretty histogram
+## -----------------------------------------
+
+h <- hist(random.cor.pine.minne.v, breaks = 100, col = "grey",
+          xlab = "Correlation Coefficient",
+          main = "Histogram of Random Correlation Coefficients w/ Normal Curve \n Book 1 of DfL: 'pine' and 'minne'",
+          plot = TRUE)
+xfit <- seq(min(random.cor.pine.minne.v), max(random.cor.pine.minne.v), length = 1000)
+yfit <- dnorm(xfit, mean = mean(random.cor.pine.minne.v), sd = sd(random.cor.pine.minne.v))
+yfit <- yfit * diff(h$mids[1:2]) * length(random.cor.pine.minne.v)
+lines(xfit, yfit, col = "black", lwd = 2)
