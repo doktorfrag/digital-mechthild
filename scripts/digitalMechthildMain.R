@@ -116,3 +116,28 @@ xfit <- seq(min(random.cor.pine.minne.v), max(random.cor.pine.minne.v), length =
 yfit <- dnorm(xfit, mean = mean(random.cor.pine.minne.v), sd = sd(random.cor.pine.minne.v))
 yfit <- yfit * diff(h$mids[1:2]) * length(random.cor.pine.minne.v)
 lines(xfit, yfit, col = "black", lwd = 2)
+
+## -----------------------------------------
+## convert to data frame
+## -----------------------------------------
+freqs.l <- mapply(data.frame,
+                  ID=seq_along(relative.text.freqs.l[[1]]), #make ID numbers based on books in corpus
+                  relative.text.freqs.l[[1]], #the corpus being called
+                  SIMPLIFY = FALSE, #don't convert to simpler data type
+                  MoreArgs = list(stringAsFactors=FALSE)) #don't convert to factors
+freqs.df <- do.call(rbind, freqs.l) #make data frame
+
+## -----------------------------------------
+## reshape data frame and cast as numeric
+## -----------------------------------------
+result <- xtabs(Freq ~ ID+Var1, data = freqs.df)
+final.m <- apply(result, 2, as.numeric)
+
+## -----------------------------------------
+## conduct data clustering
+## -----------------------------------------
+smaller.m <- final.m[, apply(final.m, 2, mean) >= 0.25]
+dm <- dist(smaller.m) #create distance object
+cluster <- hclust(dm) # perform cluster analysis
+cluster$labels <- names(relative.text.freqs.l[[1]]) #assign labels
+plot(cluster) #plot with dendrogram

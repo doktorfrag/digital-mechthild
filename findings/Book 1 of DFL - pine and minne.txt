@@ -63,3 +63,5 @@ Maximum:  0.7644272
 Range:  -0.1501537 0.7644272 
 Mean:  -0.0002451425 
 Standard Deviation:  0.1471406 
+
+Most frequent words in the corpus: si (134); ir (80); minne (65); got (57); sele (55)
